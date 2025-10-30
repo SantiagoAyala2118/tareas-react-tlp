@@ -14,7 +14,13 @@ import { useForm } from "../hooks/useForm";
 //   - Reseteará el formulario.
 
 export const Register = () => {
-  const { handleChange, handleReset, formulario } = useForm({});
+  const { handleChange, handleReset, formulario } = useForm({
+    username: "",
+    email: "",
+    password: "",
+    firstname: "",
+    lastname: "",
+  });
 
   return (
     <>
@@ -25,7 +31,9 @@ export const Register = () => {
             type="text"
             className="input"
             name="username"
+            value={formulario.username}
             placeholder="Ingrese su nombre de usuario"
+            onChange={handleChange}
           />
           <br />
           <label>Email</label>
@@ -33,7 +41,9 @@ export const Register = () => {
             type="text"
             className="input"
             name="email"
+            value={formulario.email}
             placeholder="Ingrese su correo"
+            onChange={handleChange}
           />
           <br />
           <label>Password</label>
@@ -41,7 +51,9 @@ export const Register = () => {
             type="text"
             className="input"
             name="password"
+            value={formulario.password}
             placeholder="Ingrese su contraseña"
+            onChange={handleChange}
           />
           <br />
           <label>Firstname</label>
@@ -49,7 +61,9 @@ export const Register = () => {
             type="text"
             className="input"
             name="firstname"
+            value={formulario.firstname}
             placeholder="Ingrese su primer nombre"
+            onChange={handleChange}
           />
           <br />
           <label>Lastname</label>
@@ -57,13 +71,16 @@ export const Register = () => {
             type="text"
             className="input"
             name="lastname"
+            value={formulario.lastname}
             placeholder="Ingrese su apellido"
+            onChange={handleChange}
           />
         </div>
         <div>
           <button
             onClick={(e) => {
               e.preventDefault();
+              console.log(formulario);
               handleReset();
             }}
           >
