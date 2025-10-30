@@ -1,4 +1,5 @@
 import { useForm } from "../hooks/useForm";
+import "../App.css";
 
 // **Login.jsx**
 
@@ -11,30 +12,31 @@ import { useForm } from "../hooks/useForm";
 //     - Resetea el formulario.
 //     - Envía el username al componente padre (App.jsx) mediante una función pasada por props.
 
-export const Login = () => {
-  const { handleChange, formulario, setFormulario } = useForm();
+export const Login = ({ onLogin }) => {
+  const { handleChange, formulario, handleReset, setFormulario } = useForm({
+    email: "",
+    password: "",
+  });
 
   return (
     <>
-      <form action="#">
-        <label>
-          <p>Email</p>
-        </label>
+      <form action="#" className="login" onSubmit={handleReset}>
+        <label>Email</label>
         <input
           type="text"
           name="email"
           value={formulario.email}
+          className="input"
           placeholder="Introduce tu email"
           onChange={handleChange}
         />
         <br />
-        <label>
-          <p>Password</p>
-        </label>
+        <label>Password</label>
         <input
           type="text"
           name="password"
           value={formulario.password}
+          className="input"
           placeholder="Introduce tu contraseña"
           onChange={handleChange}
         />
