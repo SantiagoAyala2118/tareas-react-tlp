@@ -13,21 +13,25 @@ import "../App.css";
 //     - Envía el username al componente padre (App.jsx) mediante una función pasada por props.
 
 export const Login = ({ onLogin }) => {
-  const { handleChange, formulario, handleReset, setFormulario } = useForm({
-    email: "",
+  const { handleChange, formulario, handleSubmit } = useForm({
+    username: "",
     password: "",
   });
 
   return (
     <>
-      <form action="#" className="login" onSubmit={handleReset}>
-        <label>Email</label>
+      <form
+        action="#"
+        className="login"
+        onSubmit={(e) => (handleSubmit(e), onLogin(formulario.username))}
+      >
+        <label>Username</label>
         <input
           type="text"
-          name="email"
-          value={formulario.email}
+          name="username"
+          value={formulario.username}
           className="input"
-          placeholder="Introduce tu email"
+          placeholder="Introduce tu nombre de usuario"
           onChange={handleChange}
         />
         <br />
@@ -41,9 +45,7 @@ export const Login = ({ onLogin }) => {
           onChange={handleChange}
         />
         <br />
-        <button type="submit" onClick={console.log(formulario)}>
-          Enviar
-        </button>
+        <button type="submit">Enviar</button>
       </form>
     </>
   );
