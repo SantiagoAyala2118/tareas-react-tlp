@@ -12,13 +12,19 @@ export const useForm = (initialValue) => {
   };
 
   const handleReset = () => {
-    setFormulario(initialValue)
-  }
+    setFormulario(initialValue);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleReset();
+  };
 
   return {
     formulario,
     handleChange,
     handleReset,
-    setFormulario
+    setFormulario,
+    handleSubmit,
   };
 };
