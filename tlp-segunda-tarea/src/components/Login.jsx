@@ -23,7 +23,7 @@ export const Login = ({ onLogin }) => {
       <form
         action="#"
         className="login"
-        onSubmit={(e) => (handleSubmit(e), onLogin(formulario.username))}
+        onSubmit={(e) => handleSubmit(e, onLogin)}
       >
         <label>Username</label>
         <input

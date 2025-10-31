@@ -15,9 +15,10 @@ export const useForm = (initialValue) => {
     setFormulario(initialValue);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, onLogin) => {
     e.preventDefault();
     handleReset();
+    onLogin(formulario.username);
   };
 
   return {
