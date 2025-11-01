@@ -18,9 +18,7 @@ export const useFetch = (url) => {
       const res = await fetch(url);
       const data = await res.json();
 
-      console.log(data.portrait_path);
-
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       setState({
         data: data,
