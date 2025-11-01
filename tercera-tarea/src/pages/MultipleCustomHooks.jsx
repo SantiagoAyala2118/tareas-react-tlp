@@ -21,7 +21,10 @@ export const MultipleCustomHooks = () => {
         <button
           className="character-button"
           onClick={() => handleDecrement(1)}
-          disabled={isLoading === true || count === 1 ? true : false}
+          disabled={isLoading || count === 1 ? true : false}
+          style={{
+            backgroundColor: isLoading || count === 1 ? "gray" : "yellow",
+          }}
         >
           Anterior
         </button>
@@ -29,6 +32,7 @@ export const MultipleCustomHooks = () => {
           className="character-button"
           onClick={() => handleIncrement(1)}
           disabled={isLoading}
+          style={{ backgroundColor: isLoading ? "gray" : "yellow" }}
         >
           Siguiente
         </button>
