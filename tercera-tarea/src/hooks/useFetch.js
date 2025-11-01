@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useCounter } from "./useCounter";
 
 export const useFetch = (url) => {
   const [state, setState] = useState({
@@ -8,8 +7,6 @@ export const useFetch = (url) => {
   });
 
   const { data, isLoading } = state;
-
-  const { count, handleIncrement } = useCounter(1);
 
   const getFetch = async () => {
     try {
@@ -20,6 +17,8 @@ export const useFetch = (url) => {
 
       const res = await fetch(url);
       const data = await res.json();
+
+      console.log(data.portrait_path);
 
       await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -36,5 +35,8 @@ export const useFetch = (url) => {
     getFetch();
   }, [url]);
 
-  return {};
+  return {
+    data,
+    isLoading,
+  };
 };
