@@ -47,7 +47,7 @@
 .character-button:hover {
   cursor: pointer;
   color: yellow;
-  background-color: black;
+  background-color: black !important;
   transition: 0.5s;
 }
 
