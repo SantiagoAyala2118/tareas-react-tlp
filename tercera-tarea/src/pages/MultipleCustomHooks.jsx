@@ -1,53 +1,21 @@
 import { useEffect, useState } from "react";
 import { useCounter } from "../hooks/useCounter";
+import { useFetch } from "../hooks/useFetch";
+import { Loading } from "../components/Loading";
 
 export const MultipleCustomHooks = () => {
-  const [state, setState] = useState({
-    data: null,
-    isLoading: true,
-  });
-
-  const { data, isLoading } = state;
-
   const { count, handleIncrement } = useCounter(1);
 
-  const url = `https://thesimpsonsapi.com/api/characters/${count}`;
-
-  const getFetch = async () => {
-    try {
-      setState({
-        ...state,
-        isLoading: true,
-      });
-
-      const res = await fetch(url);
-      const data = await res.json();
-
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-
-      setState({
-        data: data,
-        isLoading: false,
-      });
-    } catch (err) {
-      console.error("Error al obtener los datos de los personajes", err);
-    }
-  };
-
-  useEffect(() => {
-    getFetch();
-  }, [url]);
+  const { data, isLoading } = useFetch(
+    `https://thesimpsonsapi.com/api/characters/${count}`
+  );
 
   return (
     <>
       <h1>Los Simpsons API</h1>
       <h2>Personajes</h2>
 
-      {/* <h3>
-        #{data?.id} - {data?.name}
-      </h3> */}
-
-      {isLoading ? <h1>Cargando...</h1> : <h1>{data?.name}</h1>}
+      <Loading onLoading={isLoading} onData={data} onCount={count} />
 
       <button onClick={() => handleIncrement(1)}>Siguiente</button>
     </>
