@@ -10,13 +10,11 @@ export const CharacterInfo = ({ onData, onCount }) => {
       <div className="character-name">
         <h2>{onData?.name}</h2>
       </div>
-      <h3>Description: {onData?.description}</h3>
       <p className="character-status">
-        Status
-        <span>
-          <p style={{ color: onData?.status === "Alive" ? "green" : red }}>
-            {onData?.status}
-          </p>
+        Status:
+        <span style={{ color: onData?.status === "Alive" ? "green" : "red" }}>
+          {" "}
+          {onData?.status}
         </span>
       </p>
     </div>
