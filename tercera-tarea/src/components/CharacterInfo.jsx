@@ -7,8 +7,18 @@ export const CharacterInfo = ({ onData, onCount }) => {
           alt="Personaje de los Simpsons"
         />
       </div>
-      <h2>{onData?.name}</h2>
-      <h3>{onData?.description}</h3>
+      <div className="character-name">
+        <h2>{onData?.name}</h2>
+      </div>
+      <h3>Description: {onData?.description}</h3>
+      <p className="character-status">
+        Status
+        <span>
+          <p style={{ color: onData?.status === "Alive" ? "green" : red }}>
+            {onData?.status}
+          </p>
+        </span>
+      </p>
     </div>
   );
 };

@@ -14,7 +14,7 @@ export const MultipleCustomHooks = () => {
   return (
     <div className="container">
       <h1>Los Simpsons API</h1>
-      <h2>Personajes</h2>
+      <h2>Personaje</h2>
 
       <div>
         {isLoading ? (
