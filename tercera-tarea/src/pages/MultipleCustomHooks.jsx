@@ -2,6 +2,7 @@ import { useCounter } from "../hooks/useCounter";
 import { useFetch } from "../hooks/useFetch";
 import { Loading } from "../components/Loading";
 import "../styles/characters.css";
+import "../styles/loading.css";
 import { CharacterInfo } from "../components/CharacterInfo";
 
 export const MultipleCustomHooks = () => {
