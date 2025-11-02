@@ -1,0 +1,56 @@
+/* ESTO PERTENECE A LOS PERSONAJES DE LA API EN LA TERCERA TAREA */
+
+.container {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: cornsilk;
+  color: #242424;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 70%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+}
+
+.character-button {
+  border-radius: 5px;
+  padding: 3px;
+  background-color: yellow;
+  color: black;
+  font-size: larger;
+}
+
+.character-button:hover {
+  cursor: pointer;
+  color: yellow;
+  background-color: black !important;
+  transition: 0.5s;
+}
+
+.container img {
+  border-style: inset;
+  border-radius: 10px;
+}
+
+.container img:hover {
+  cursor: pointer;
+  transform: rotateZ(5deg);
+  transition: 0.5s;
+}
+
+.image-container {
+  display: flex;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
