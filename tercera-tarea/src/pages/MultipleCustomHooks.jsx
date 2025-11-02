@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
 import { useCounter } from "../hooks/useCounter";
 import { useFetch } from "../hooks/useFetch";
 import { Loading } from "../components/Loading";
+import "../styles/characters.css";
+import { CharacterInfo } from "../components/CharacterInfo";
 
 export const MultipleCustomHooks = () => {
   const { count, handleIncrement, handleDecrement } = useCounter(1);
@@ -15,7 +16,13 @@ export const MultipleCustomHooks = () => {
       <h1>Los Simpsons API</h1>
       <h2>Personajes</h2>
 
-      <Loading onLoading={isLoading} onData={data} onCount={count} />
+      <div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <CharacterInfo onData={data} onCount={count} />
+        )}
+      </div>
 
       <div className="button-container">
         <button
