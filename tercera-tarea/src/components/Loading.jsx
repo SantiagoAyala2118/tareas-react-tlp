@@ -1,15 +1,9 @@
 import { CharacterInfo } from "./CharacterInfo";
 
-export const Loading = ({ onLoading, onData, onCount }) => {
+export const Loading = () => {
   return (
     <>
-      {onLoading ? (
-        <h3>Cargando...</h3>
-      ) : (
-        <h3>
-          <CharacterInfo onData={onData} onCount={onCount} />
-        </h3>
-      )}
+      <h3>Cargando...</h3>
     </>
   );
 };
