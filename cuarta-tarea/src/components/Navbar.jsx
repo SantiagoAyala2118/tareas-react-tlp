@@ -11,7 +11,10 @@ export const Navbar = () => {
         <nav className="bg-blue-500 w-full flex flex-col items-center">
           <h1>Bienvenido</h1> <br />
           <div className=" w-100 flex items-center place-content-between ">
-            <button className="border rounded-sm bg-yellow-400 hover:cursor-pointer">
+            <button
+              onClick={navigate("/home")}
+              className="border rounded-sm bg-yellow-400 hover:cursor-pointer"
+            >
               HOME
             </button>
             <button
