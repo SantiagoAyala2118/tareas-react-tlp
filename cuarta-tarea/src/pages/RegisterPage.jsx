@@ -1,13 +1,22 @@
+import { useNavigate } from "react-router";
 import { useForm } from "../hooks/useForm";
 
 export const RegisterPage = () => {
-  const { handleChange, handleSubmit, formulario } = useForm({
+  const { handleChange, formulario } = useForm({
     username: "",
     email: "",
     password: "",
     firstName: "",
     lastName: "",
   });
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    navigate("/login");
+  };
 
   return (
     <>
@@ -26,42 +35,44 @@ export const RegisterPage = () => {
           <label>Email</label>
           <input
             type="text"
-            name="username"
-            value={formulario.username}
+            name="email"
+            value={formulario.email}
             onChange={handleChange}
-            placeholder="username"
+            placeholder="email"
           />
         </div>
         <div>
           <label>Pasword</label>
           <input
             type="text"
-            name="username"
-            value={formulario.username}
+            name="password"
+            value={formulario.password}
             onChange={handleChange}
-            placeholder="username"
+            placeholder="password"
           />
         </div>
         <div>
           <label>Firstname</label>
           <input
             type="text"
-            name="username"
-            value={formulario.username}
+            name="firstName"
+            value={formulario.firstName}
             onChange={handleChange}
-            placeholder="username"
+            placeholder="firstName"
           />
         </div>
         <div>
           <label>Lastname</label>
           <input
             type="text"
-            name="username"
-            value={formulario.username}
+            name="lastName"
+            value={formulario.lastName}
             onChange={handleChange}
-            placeholder="username"
+            placeholder="lastName"
           />
         </div>
+
+        <button type="submit"></button>
       </form>
     </>
   );
