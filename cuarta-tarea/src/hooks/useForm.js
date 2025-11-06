@@ -23,9 +23,15 @@ export const useForm = (initialValue) => {
     handleReset();
     // onLogin(formulario.username);
 
-    localStorage.setItem("isLogged", "true")
+    localStorage.setItem("isLogged", "true");
 
-    navigate('/home');
+    navigate("/home");
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("isLogged");
+    navigate("/login");
   };
 
   return {
@@ -34,5 +40,6 @@ export const useForm = (initialValue) => {
     handleReset,
     setFormulario,
     handleSubmit,
+    handleLogout,
   };
 };
