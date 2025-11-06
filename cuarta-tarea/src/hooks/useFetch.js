@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url) => {
+export const useFetch = () => {
   const [state, setState] = useState({
     data: null,
     isLoading: true,
@@ -8,7 +8,7 @@ export const useFetch = (url) => {
 
   const { data, isLoading } = state;
 
-  const getFetch = async () => {
+  const getFetch = async (url) => {
     try {
       setState({
         ...state,
@@ -29,12 +29,9 @@ export const useFetch = (url) => {
     }
   };
 
-  useEffect(() => {
-    getFetch();
-  }, [url]);
-
   return {
     data,
     isLoading,
+    getFetch,
   };
 };
