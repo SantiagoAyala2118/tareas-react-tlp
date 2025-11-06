@@ -1,17 +1,21 @@
+import { useEffect } from "react";
 import { useCounter } from "../hooks/useCounter";
 import { useFetch } from "../hooks/useFetch";
 import { Loading } from "../components/Loading";
 // import "../styles/characters.css";
 // import "../styles/loading.css";
 import { CharacterInfo } from "../components/CharacterInfo";
-import { Navbar } from "../components/Navbar";
 
 export const HomePage = () => {
   const { count, handleIncrement, handleDecrement } = useCounter(1);
 
-  const { data, isLoading } = useFetch(
-    `https://thesimpsonsapi.com/api/characters/${count}`
-  );
+  const { data, isLoading, getFetch } = useFetch();
+
+  const url = `https://thesimpsonsapi.com/api/characters/${count}`;
+
+  useEffect(() => {
+    getFetch(url);
+  }, [url]);
 
   return (
     <div className="bg-white min-h-screen w-full flex flex-col">
