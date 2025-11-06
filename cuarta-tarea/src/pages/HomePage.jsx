@@ -4,6 +4,7 @@ import { Loading } from "../components/Loading";
 // import "../styles/characters.css";
 // import "../styles/loading.css";
 import { CharacterInfo } from "../components/CharacterInfo";
+import { Navbar } from "../components/Navbar";
 
 export const HomePage = () => {
   const { count, handleIncrement, handleDecrement } = useCounter(1);
@@ -13,11 +14,13 @@ export const HomePage = () => {
   );
 
   return (
-    <div className="container">
-      <h1>Los Simpsons API</h1>
-      <h2>Personaje</h2>
+    <div className="bg-white min-h-screen w-full flex flex-col">
+      <div className="flex flex-col items-center">
+        <h1 className="text-red-300">Los Simpsons API</h1>
+        <h2 className="text-red-300">Personaje</h2>
+      </div>
 
-      <div>
+      <div className="flex flex-col items-center">
         {isLoading ? (
           <Loading />
         ) : (
@@ -25,9 +28,9 @@ export const HomePage = () => {
         )}
       </div>
 
-      <div className="button-container">
+      <div className="flex items-center place-content-center">
         <button
-          className="character-button"
+          className="hover:cursor-pointer hover:bg-amber-500 border rounded-sm bg-yellow-400 mr-30"
           onClick={() => handleDecrement(1)}
           disabled={isLoading || count === 1 ? true : false}
           style={{
@@ -37,7 +40,7 @@ export const HomePage = () => {
           Anterior
         </button>
         <button
-          className="character-button"
+          className="hover:cursor-pointer hover:bg-amber-500 border rounded-sm bg-yellow-400"
           onClick={() => handleIncrement(1)}
           disabled={isLoading}
           style={{ backgroundColor: isLoading ? "gray" : "yellow" }}
