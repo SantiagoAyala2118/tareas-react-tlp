@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const useForm = (initialValue) => {
   const [formulario, setFormulario] = useState(initialValue);
+
+  const navigate = useNavigate();
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -18,7 +21,11 @@ export const useForm = (initialValue) => {
   const handleSubmit = (e, onLogin) => {
     e.preventDefault();
     handleReset();
-    onLogin(formulario.username);
+    // onLogin(formulario.username);
+
+    localStorage.setItem("isLogged", "true")
+
+    navigate('/home');
   };
 
   return {
