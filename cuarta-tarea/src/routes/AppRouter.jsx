@@ -1,19 +1,21 @@
 import { Navigate, Route, Routes } from "react-router";
-import { Home } from "../pages/HomePage";
-import { Login } from "../pages/LoginPage";
-import { Register } from "../pages/RegisterPage";
-import { PublicRoutes } from "./PublicRoutes";
-import { PrivateRoutes } from "./PrivateRoutes";
+import { PublicRouter } from "./PublicRouter";
+import { PrivateRouter } from "./PrivateRouter";
+import { HomePage } from "../pages/HomePage";
+import { RegisterPage } from "../pages/RegisterPage";
+import { LoginPage } from "../pages/LoginPage";
 
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route element={<PublicRoutes />}>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+      <Route element={<PublicRouter />}>
+        <Route path="*" element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Route>
-      <Route element={<PrivateRoutes />}>
-        <Route path="/home" element={<Home />} />
+      <Route element={<PrivateRouter />}>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
   );
